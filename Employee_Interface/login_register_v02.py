@@ -1,4 +1,3 @@
-# CONNECT TO PROGRESSPULSE DATABASE AND LOGIN TO AN ACCOUNT
 from tkinter import *
 from tkinter import messagebox
 from employee import *
