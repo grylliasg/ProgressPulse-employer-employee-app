@@ -8,10 +8,9 @@ def connectToDatabase():
     try:
         # Connect to MySQL database on port 3307
         conn = mysql.connector.connect(
-            host="localhost",
-            port="3307",  
+            host="localhost", 
             user="root",
-            password="",
+            password="iwanna",
             database="progresspulse"
         )
         # If the connection is successful, print a success message
