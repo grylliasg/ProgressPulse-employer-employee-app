@@ -301,7 +301,7 @@ def employerInterface(employer,name):
     logout.place(x=1470, y=15)
 
     welcome = tk.Label(if2, 
-                       text=f'Welcome, {name} ', 
+                       text=f'Welcome, {employer.name} ', 
                        font=('Helvetica', 18, 'bold italic'), 
                        border=5, 
                        relief="groove", 
@@ -316,7 +316,7 @@ def employerInterface(employer,name):
                          fg='black',
                          bg='white',
                          cursor='hand2',
-                         #command= name.profileSettings
+                         command= employer.profileSettings
                          )
     settings.place(x=1300, y=15)
 
