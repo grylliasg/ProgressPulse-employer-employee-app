@@ -213,13 +213,27 @@ class Employer(User):
 
     
     def remove_member_from_team(self, user_id):
-        query = '''
+        update_team_query = '''
         UPDATE Users
         SET Team = NULL
         WHERE UserID = %s AND Team = %s
         '''
+        
+        delete_tasks_query = '''
+        DELETE FROM Tasks
+        WHERE UserID = %s
+        '''
+        
+        delete_leave_requests_query = '''
+        DELETE FROM LeaveRequests
+        WHERE UserID = %s
+        '''
+        
         with get_cursor() as cursor:
-            cursor.execute(query, (user_id, self.team_id))
+            cursor.execute(update_team_query, (user_id, self.team_id))
+            cursor.execute(delete_tasks_query, (user_id,))
+            cursor.execute(delete_leave_requests_query, (user_id,))
+
 
     
     def accept_withdrawal(self, user_id):
